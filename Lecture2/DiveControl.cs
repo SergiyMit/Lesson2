@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lecture2
 {
@@ -10,14 +11,16 @@ namespace Lecture2
         private int Age { get; set; }
         private string Email { get; set; }
         private int TelNumber { get; set; }
-        private int IdDevice;//Номер персонального устройства для получения параметров про погружение
+        private int IdDevice;
     }
     public class DiveCertificate
     {
         private string CertNumber { get; set; }
         private DateTime DateOfIssuance { get; set; }
-        private int IdDiver;//Связь с дайверами(у одного дайвера может быть несколько сертификатов)
-        private int IdLevel;//Связь с уровнями
+        private List<CertificateLevel> Level { get; set; }
+        private List<Diver> Diver { get; set; }
+
+
     }
     public class CertificateLevel
     {
@@ -30,7 +33,7 @@ namespace Lecture2
     public class DiveMeasurement
     {
         private int IdMeasurement { get; set; }
-        private int IdDevice;//Связь с дайвером
+        private List<Diver> DiverDevice { get; set; }
         private int MaxDiveDeep { get; set; }
         private int DiveTime { get; set; }
         private double WaterTemperature { get; set; }
@@ -38,11 +41,11 @@ namespace Lecture2
     public class DiveLog
     {
         private int IdDive { get; set; }
-        private int IdMeasurement;//Связь с измерениями
         private int WeightsAmount { get; set; }
         private string WetsuitType { get; set; }
         private int OxygenAtStart { get; set; }
         private int OxygenAtEnd { get; set; }
         private string DiveSite { get; set; }
+        private List<DiveMeasurement> DiveMeasurement { get; set; }
     }
 }
