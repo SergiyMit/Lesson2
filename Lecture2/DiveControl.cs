@@ -7,6 +7,7 @@ namespace Lecture2
     {
         private string Login { get; set; }
         private string Email { get; set; }
+        private int Type { get; set; }
     }
     public class Diver
     {
