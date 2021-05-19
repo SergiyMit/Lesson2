@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace Lecture2
 {
+    public class User
+    {
+        private string Login { get; set; }
+        private string Email { get; set; }
+    }
     public class Diver
     {
         private int IdDiver { get; set; }
