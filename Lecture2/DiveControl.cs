@@ -5,53 +5,113 @@ namespace Lecture2
 {
     public class User
     {
-        private string Login { get; set; }
-        private string Email { get; set; }
-        private int Type { get; set; }
+        private int IdUser;
+        public string Login { get; set; }
+        public string Password { get; set; }
+        private readonly int UserType;
+        protected User(string login, string password, int type)
+        {
+            Login = login;
+            Password = password;
+            UserType = type;
+        }
     }
     public class Diver : User
     {
-        private int IdDiver { get; set; }
-        private string Name { get; set; }
-        private string Surname { get; set; }
-        private int Age { get; set; }
-        private string Email { get; set; }
-        private int TelNumber { get; set; }
-        private int IdDevice;
+        private int IdDiver;
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int Age { get; set; }
+        public string Email { get; set; }
+        public int TelNumber { get; set; }
+        public int DeviceNumber { get; set; }
+        public Diver (string name, string surname, int age, string email, int telnumber, int devicenumber, string login, string password) : base(login, password, 1)
+        {
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Email = email;
+            TelNumber = telnumber;
+            DeviceNumber = devicenumber;
+        }
+    }
+    public class Admin : User
+    {
+        private int IdAdmin;
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int PersonalAccessCode { get; set; }
+
+        public Admin(string name, string surname, int personalaccesscode, string login, string password) : base (login, password, 2)
+        {
+            Name = name;
+            Surname = surname;
+            PersonalAccessCode = personalaccesscode;
+        }
     }
     public class DiveCertificate
     {
-        private string CertNumber { get; set; }
-        private DateTime DateOfIssuance { get; set; }
-        private List<CertificateLevel> Level { get; set; }
-        private List<Diver> Diver { get; set; }
-
-
+        private int IdCertificate;
+        public string CertNumber { get; set; }
+        public DateTime DateOfIssuance { get; set; }
+        public Diver Diver { get; set; }
+        public CertificateLevel CertificateLevel { get; set; }
+        public DiveCertificate(string certnumber, DateTime dateofissuance, Diver diver, CertificateLevel certificatelevel)
+        {
+            CertNumber = certnumber;
+            DateOfIssuance = dateofissuance;
+            Diver = diver;
+            CertificateLevel = certificatelevel;
+        }
     }
     public class CertificateLevel
     {
-        private int IdLevel { get; set; }
-        private string LevelName { get; set; }
-        private int MaxAllowedDeep { get; set; }
-        private int RequiredDives { get; set; }
-        private string AdditionalInfo { get; set; }
+        private int IdLevel;
+        public string LevelName { get; set; }
+        public int MaxAllowedDeep { get; set; }
+        public int RequiredDives { get; set; }
+        public string AdditionalInfo { get; set; }
+        
+        public CertificateLevel(string levelname, int maxalloweddeep, int requireddives, string additionalinfo)
+        {
+            LevelName = levelname;
+            MaxAllowedDeep = maxalloweddeep;
+            RequiredDives = requireddives;
+            AdditionalInfo = additionalinfo;
+        }
+            
     }
     public class DiveMeasurement
     {
-        private int IdMeasurement { get; set; }
-        private List<Diver> DiverDevice { get; set; }
-        private int MaxDiveDeep { get; set; }
-        private int DiveTime { get; set; }
-        private double WaterTemperature { get; set; }
+        private int IdMeasurement;
+        public Diver Diver { get; set; }
+        public int MaxDiveDeep { get; set; }
+        public int DiveTime { get; set; }
+        public decimal WaterTemperature { get; set; }
+        public DiveMeasurement(int maxdivedeep, int divetime, decimal watertemperature, Diver diver)
+        {
+            Diver = diver;
+            MaxDiveDeep = maxdivedeep;
+            DiveTime = divetime;
+            WaterTemperature = watertemperature;
+        }
     }
-    public class DiveLog
+    public class DiveLog : DiveMeasurement
     {
-        private int IdDive { get; set; }
-        private int WeightsAmount { get; set; }
-        private string WetsuitType { get; set; }
-        private int OxygenAtStart { get; set; }
-        private int OxygenAtEnd { get; set; }
-        private string DiveSite { get; set; }
-        private List<DiveMeasurement> DiveMeasurement { get; set; }
+        private int IdDive;
+        public int WeightsAmount { get; set; }
+        public string WetsuitType { get; set; }
+        public int OxygenAtStart { get; set; }
+        public int OxygenAtEnd { get; set; }
+        public string DiveSite { get; set; }
+
+        public DiveLog(int weightsamout, string wetsuittype, int oxygenatstart, int oxygenatend, string divesite, int maxdivedeep, int divetime, int watertemperature, Diver diver )
+        : base(maxdivedeep, divetime, watertemperature, diver)
+        {
+            WeightsAmount = weightsamout;
+            WetsuitType = wetsuittype;
+            OxygenAtStart = oxygenatstart;
+            OxygenAtEnd = oxygenatend;
+        }
     }
 }
