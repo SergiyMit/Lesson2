@@ -11,11 +11,11 @@ namespace Lecture2.Models
         private int IdDive;
         public int WeightsAmount { get; set; }
         public string WetsuitType { get; set; }
-        public int OxygenAtStart { get; set; }
-        public int OxygenAtEnd { get; set; }
+        public decimal OxygenAtStart { get; set; }
+        public decimal OxygenAtEnd { get; set; }
         public string DiveSite { get; set; }
 
-        public DiveLog(int weightsamout, string wetsuittype, int oxygenatstart, int oxygenatend, string divesite, int maxdivedeep, int divetime, int watertemperature, Diver diver)
+        public DiveLog(int weightsamout, string wetsuittype, decimal oxygenatstart, decimal oxygenatend, string divesite, int maxdivedeep, int divetime, int watertemperature, Diver diver)
         : base(maxdivedeep, divetime, watertemperature, diver)
         {
             WeightsAmount = weightsamout;
@@ -23,6 +23,10 @@ namespace Lecture2.Models
             OxygenAtStart = oxygenatstart;
             OxygenAtEnd = oxygenatend;
         }
-
+       public decimal CalculateOxygenUsage()
+        {
+            decimal OxygenUsage = this.OxygenAtStart - this.OxygenAtEnd;
+            return OxygenUsage;
+        }
     }
 }

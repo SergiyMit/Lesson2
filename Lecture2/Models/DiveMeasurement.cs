@@ -21,6 +21,10 @@ namespace Lecture2.Models
             DiveTime = divetime;
             WaterTemperature = watertemperature;
         }
-        
+        public Boolean IsDeepExceed()
+        {
+            return false;
+        }
+
     }
 }
