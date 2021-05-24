@@ -24,5 +24,9 @@ namespace Lecture2.Models
             TelNumber = telnumber;
             DeviceNumber = devicenumber;
         }
+        public override void DisplayInfo()
+        {
+            Console.WriteLine($"Name: {this.Name}| Surname: {this.Surname}| Age {this.Age}");
+        }
     }
 }

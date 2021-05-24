@@ -18,5 +18,9 @@ namespace Lecture2.Models
             Password = password;
             UserType = type;
         }
+        public virtual void DisplayInfo()
+        {
+
+        }
     }
 }

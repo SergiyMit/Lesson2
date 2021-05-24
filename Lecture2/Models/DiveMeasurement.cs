@@ -21,9 +21,9 @@ namespace Lecture2.Models
             DiveTime = divetime;
             WaterTemperature = watertemperature;
         }
-        public void ExceededDeep(Boolean exceedorno)
+        public void ExceededDeep(Boolean exceedOrNo)
         {
-            if (exceedorno)
+            if (exceedOrNo)
             {
                 Notification notification = new Notification("Deep excided", "You exceed your deep", this.Diver);
             }
