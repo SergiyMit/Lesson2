@@ -13,6 +13,7 @@ namespace Lecture2.Models
         public int MaxDiveDeep { get; set; }
         public int DiveTime { get; set; }
         public decimal WaterTemperature { get; set; }
+        public DateTime DateOfDive { get; set; }
         public DiveMeasurement(int maxdivedeep, int divetime, decimal watertemperature, Diver diver)
         {
             Diver = diver;
@@ -20,5 +21,6 @@ namespace Lecture2.Models
             DiveTime = divetime;
             WaterTemperature = watertemperature;
         }
+        
     }
 }

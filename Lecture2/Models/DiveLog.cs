@@ -23,5 +23,6 @@ namespace Lecture2.Models
             OxygenAtStart = oxygenatstart;
             OxygenAtEnd = oxygenatend;
         }
+
     }
 }

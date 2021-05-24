@@ -8,7 +8,7 @@ namespace Lecture2.Models
 {
     public class DiveCertificate
     {
-        private int IdCertificate;
+        public int IdCertificate { get; private set; }
         public string CertNumber { get; set; }
         public DateTime DateOfIssuance { get; set; }
         public Diver Diver { get; set; }
