@@ -31,6 +31,14 @@ namespace Lecture2.Models
             this.RequiredDives = requireddives;
             this.AdditionalInfo = additionalinfo;
         }
-
+        public Boolean IsDeepExceed(int deep)
+        {
+            if (deep > MaxAllowedDeep)
+            {
+                return true;
+            }
+            return false;
+        }
+        
     }
 }
