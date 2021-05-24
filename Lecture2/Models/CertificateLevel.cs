@@ -22,5 +22,15 @@ namespace Lecture2.Models
             AdditionalInfo = additionalinfo;
         }
 
+        public void ChangeLevel(int maxalloweddeep)
+        {
+            this.MaxAllowedDeep = maxalloweddeep;
+        }
+        public void ChangeLevel ( int requireddives, string additionalinfo)
+        {
+            this.RequiredDives = requireddives;
+            this.AdditionalInfo = additionalinfo;
+        }
+
     }
 }
