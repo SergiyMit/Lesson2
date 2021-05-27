@@ -8,7 +8,7 @@ namespace Lecture2.Models
 {
     public class CertificateLevel
     {
-        public int IdLevel { get; private set; }
+        private int IdLevel;
         public string LevelName { get; set; }
         public int MaxAllowedDeep { get; set; }
         public int RequiredDives { get; set; }

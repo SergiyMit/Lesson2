@@ -8,7 +8,7 @@ namespace Lecture2.Models
 {
     public class Diver : User
     {
-        public int IdDiver { get; private set; }
+        private int IdDiver;
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Age { get; set; }
