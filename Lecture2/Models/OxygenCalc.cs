@@ -23,5 +23,9 @@ namespace Lecture2.Models
             decimal result = 50 + ((25 * this.TimeOxygen * (1 + (this.DeepOxygen / 10))) / this.TankOxygen);
             return result;
         }
+        public OxygenCalc()
+        {
+
+        }
     }
 }
