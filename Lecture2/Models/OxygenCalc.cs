@@ -8,19 +8,19 @@ namespace Lecture2.Models
 {
     class OxygenCalc
     {
-         int TimeOxygen;
-         int DeepOxygen;
-         int TankOxygen;
-         int TankPreassure;
+       readonly  int TimeOxygen;
+       readonly int DeepOxygen;
+       readonly int TankOxygen;
+       readonly int TankPreassure;
 
-        public decimal CalculateDiveTime (int TankOxygen, int TankPreassure, int DeepOxygen)
+        public decimal CalculateDiveTime ()
         {
-            decimal result = (TankOxygen * TankPreassure) / (25 * (1 + (DeepOxygen/10)));
+            decimal result = (this.TankOxygen * this.TankPreassure) / (25 * (1 + (this.DeepOxygen/10)));
             return result;
         }
-        public decimal CalculateDiveOxygen(int TankOxygen, int TimeOxygen, int DeepOxygen)
+        public decimal CalculateDiveOxygen()
         {
-            decimal result = 50 + ((25 * TimeOxygen * (1 + (DeepOxygen / 10))) / TankOxygen);
+            decimal result = 50 + ((25 * this.TimeOxygen * (1 + (this.DeepOxygen / 10))) / this.TankOxygen);
             return result;
         }
     }
